@@ -1,0 +1,355 @@
+---
+// src/pages/index.astro
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jon Polo Elorrieta – CV</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f4f4f4;
+        color: #222;
+      }
+
+      .cv-wrapper {
+        max-width: 860px;
+        margin: 40px auto;
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      /* HEADER */
+      header {
+        background: #1a1a2e;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        padding: 40px;
+      }
+
+      header img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #e94560;
+      }
+
+      header .info h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      header .info p {
+        margin-top: 8px;
+        font-size: 0.95rem;
+        color: #ccc;
+      }
+
+      header .info a {
+        color: #e94560;
+        text-decoration: none;
+      }
+
+      /* MAIN LAYOUT */
+      .cv-body {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+      }
+
+      /* SIDEBAR */
+      aside {
+        background: #16213e;
+        color: #eee;
+        padding: 32px 24px;
+      }
+
+      aside h2 {
+        font-size: 0.75rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #e94560;
+        margin-bottom: 16px;
+        margin-top: 28px;
+        border-bottom: 1px solid #e94560;
+        padding-bottom: 6px;
+      }
+
+      aside h2:first-child {
+        margin-top: 0;
+      }
+
+      /* Skills */
+      .skill-group {
+        margin-bottom: 8px;
+      }
+
+      .skill-group h3 {
+        font-size: 0.8rem;
+        color: #aaa;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+      }
+
+      .skill-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .skill-list li {
+        background: #0f3460;
+        color: #e0e0e0;
+        font-size: 0.78rem;
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
+
+      /* Languages */
+      .lang-item {
+        margin-bottom: 10px;
+      }
+
+      .lang-item .lang-name {
+        font-weight: bold;
+        font-size: 0.9rem;
+      }
+
+      .lang-item .lang-level {
+        font-size: 0.78rem;
+        color: #aaa;
+      }
+
+      /* MAIN CONTENT */
+      main {
+        padding: 32px 36px;
+      }
+
+      section {
+        margin-bottom: 36px;
+      }
+
+      section h2 {
+        font-size: 0.75rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #e94560;
+        border-bottom: 2px solid #e94560;
+        padding-bottom: 6px;
+        margin-bottom: 20px;
+      }
+
+      /* Timeline */
+      .timeline-item {
+		display: grid;
+		grid-template-columns: 140px 1fr;
+		gap: 16px;
+		margin-bottom: 24px;
+		}
+
+		.timeline-date {
+		font-size: 0.72rem;
+		color: #888;
+		padding-top: 3px;
+		text-align: right;
+		white-space: nowrap;
+		line-height: 1.4;
+		}
+      .timeline-content h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #1a1a2e;
+      }
+
+      .timeline-content .company {
+        font-size: 0.85rem;
+        color: #555;
+        margin-bottom: 6px;
+        font-style: italic;
+      }
+
+      .timeline-content ul {
+        padding-left: 18px;
+        font-size: 0.85rem;
+        color: #444;
+        line-height: 1.6;
+      }
+
+      .timeline-content p {
+        font-size: 0.85rem;
+        color: #444;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 640px) {
+        .cv-body {
+          grid-template-columns: 1fr;
+        }
+
+        header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .timeline-item {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline-date {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cv-wrapper">
+
+      <!-- HEADER -->
+      <header>
+        <img src="/jonpolo_picture.png" alt="Jon Polo Elorrieta" />
+        <div class="info">
+          <h1>Jon Polo Elorrieta</h1>
+          <p>Developer Engineer · IoT</p>
+          <p style="margin-top: 6px;">
+            <a href="mailto:jonpoloelo@gmail.com">jonpoloelo@gmail.com</a>
+            &nbsp;|&nbsp;
+            <a href="tel:+34688680365">(+34) 688 680 365</a>
+          </p>
+        </div>
+      </header>
+
+      <div class="cv-body">
+
+        <!-- SIDEBAR -->
+        <aside>
+
+          <h2>Programación</h2>
+          <div class="skill-group">
+            <h3>Lenguajes</h3>
+            <ul class="skill-list">
+              <li>Python</li>
+              <li>LabVIEW</li>
+              <li>C / C++</li>
+              <li>SQL</li>
+              <li>JAVA</li>
+              <li>HTML</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+          <div class="skill-group" style="margin-top: 14px;">
+            <h3>Herramientas</h3>
+            <ul class="skill-list">
+              <li>Qt</li>
+              <li>GIT</li>
+              <li>API REST</li>
+              <li>Linux</li>
+              <li>Bases de datos</li>
+              <li>Procesado de datos</li>
+            </ul>
+          </div>
+
+          <h2>Idiomas</h2>
+          <div class="lang-item">
+            <div class="lang-name">Español</div>
+            <div class="lang-level">Competencia nativa</div>
+          </div>
+          <div class="lang-item">
+            <div class="lang-name">Euskera</div>
+            <div class="lang-level">Competencia nativa · C1</div>
+          </div>
+          <div class="lang-item">
+            <div class="lang-name">Inglés</div>
+            <div class="lang-level">Competencia básica profesional · B2</div>
+          </div>
+
+        </aside>
+
+        <!-- MAIN -->
+        <main>
+
+          <!-- EDUCACIÓN -->
+          <section>
+            <h2>Educación</h2>
+
+
+            <div class="timeline-item">
+              <div class="timeline-date">2016 – 2021</div>
+              <div class="timeline-content">
+                <h3>Grado en Ingeniería de Tecnología de Telecomunicación</h3>
+                <div class="company">UPV-EHU</div>
+                <p>Mención en Sistemas de Telecomunicación.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">2021 – 2022</div>
+              <div class="timeline-content">
+                <h3>Máster Universitario en Internet de las Cosas</h3>
+                <div class="company">UC3M</div>
+                <p>Tecnologías aplicadas.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- EXPERIENCIA -->
+          <section>
+            <h2>Experiencia Laboral</h2>
+
+            <div class="timeline-item">
+              <div class="timeline-date">Nov 2021 – Sep 2022</div>
+              <div class="timeline-content">
+                <h3>Telcaria Ideas S.L. – UC3M</h3>
+                <div class="company">Full Stack Engineer</div>
+                <ul>
+                  <li>Desarrollo Web</li>
+                  <li>Desarrollo de SW embebido (C/C++).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">Sep 2022–Ene 2024</div>
+              <div class="timeline-content">
+                <h3>Airbus Defence and Space</h3>
+                <div class="company">Full Stack Engineer</div>
+                <ul>
+                  <li>Desarrollo de aplicaciones de escritorio para comunicaciones aéreas con el framework QT.</li>
+                  <li>Prototipado de software para comunicaciones aéreas.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">Ene 2024 – Actualidad</div>
+              <div class="timeline-content">
+                <h3>ULMA Embedded Solutions</h3>
+                <div class="company">Developer Engineer</div>
+                <ul>
+                  <li>Desarrollo y gestión de proyectos de plataforma de IoT.</li>
+                  <li>Desarrollo  y gestión de proyectos de calidad automatizada (LabVIEW).</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
